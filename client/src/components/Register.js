@@ -17,9 +17,9 @@ export default function Register() {
 
   const formik = useFormik({
     initialValues : {
-      email: 'doyol56239@cnogs.com',
-      username: 'example123',
-      password : 'admin@123'
+      email: '',
+      username: '',
+      password : ''
     },
     validate : registerValidation,
     validateOnBlur: false,
@@ -54,7 +54,7 @@ export default function Register() {
           <div className="title flex flex-col items-center">
             <h4 className='text-5xl font-bold'>Register</h4>
             <span className='py-4 text-xl w-2/3 text-center text-gray-500'>
-                Happy to join you!
+                Register to compete with fellow MBMite's!
             </span>
           </div>
 
@@ -76,6 +76,9 @@ export default function Register() {
 
               <div className="text-center py-4">
                 <span className='text-gray-500'>Already Register? <Link className='text-red-500' to="/">Login Now</Link></span>
+              </div>
+              <div className="text-center py-4">
+                <span className='text-gray-500'>Click on Profile Avatar, Select the image. </span>
               </div>
 
           </form>

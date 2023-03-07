@@ -1,4 +1,4 @@
-import express from 'express';
+import express from 'express'; //package.json mai jaake type module kro!!
 import cors from 'cors';
 import morgan from 'morgan';
 import connect from './database/conn.js';
@@ -21,10 +21,10 @@ app.get('/', (req, res) => {
 });
 
 
-/** api routes */
-app.use('/api', router)
+// /** api routes */
+// app.use('/api', router)
 
-/** start server only when we have valid connection */
+// /** start server only when we have valid connection */
 connect().then(() => {
     try {
         app.listen(port, () => {
@@ -36,4 +36,8 @@ connect().then(() => {
 }).catch(error => {
     console.log("Invalid database connection...!");
 })
+// app.listen(port, () => {
+//                 console.log(`Server connected to http://localhost:${port}`);
+//             }) 
+
 
