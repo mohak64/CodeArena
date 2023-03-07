@@ -1,4 +1,5 @@
-# Welcome to MERN Login System
+# Welcome to MBM Contest Repo 
+# ALL RIGHT RESERVED @MBM2023
 
 Hello everyone, In this project, we are going to create **MERN Stack App with Login System**. 
 We will take a look at how to create login, registration, profile, reset password routes and learn
@@ -34,5 +35,3 @@ export default {
 Now, create all these variables in the project and make sure you set ATLAS_URI variable.
 Otherwise, the project will not work.
 
-Learn More about this project from the
-[ - Daily Tuition](https://www.youtube.com/c/@dailytuition) Youtube Channel.
