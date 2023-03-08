@@ -35,7 +35,7 @@ export async function verifyUser(req, res, next){
 */
 export async function register(req,res){
 
-    try {
+    try { 
         const { username, password, profile, email } = req.body;        
 
         // check the existing user
@@ -109,7 +109,7 @@ export async function login(req,res){
         
         UserModel.findOne({ username })
             .then(user => {
-                bcrypt.compare(password, user.password)
+                bcrypt.compare(password, user.password)//second arg is the encrypted pass from database
                     .then(passwordCheck => {
 
                         if(!passwordCheck) return res.status(400).send({ error: "Don't have Password"});
@@ -119,6 +119,11 @@ export async function login(req,res){
                                         userId: user._id,
                                         username : user.username
                                     }, ENV.JWT_SECRET , { expiresIn : "24h"});
+
+                        // const token =jwt.sign({
+                        //                     userId: user._id,
+                        //                     username : user.username
+                        //                 }, 'secret' , { expiresIn : "24h"});
 
                         return res.status(200).send({
                             msg: "Login Successful...!",

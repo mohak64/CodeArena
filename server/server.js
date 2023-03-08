@@ -21,8 +21,8 @@ app.get('/', (req, res) => {
 });
 
 
-// /** api routes */
-// app.use('/api', router)
+/** api routes */
+app.use('/api', router)
 
 // /** start server only when we have valid connection */
 connect().then(() => {
