@@ -6,6 +6,7 @@ import { Toaster } from 'react-hot-toast';
 import { useFormik } from 'formik';
 import { usernameValidate } from '../helper/validate'
 import { useAuthStore } from '../store/store'
+// import Logo2 from '../assets/logo-no-background1.png' 
 
 import styles from '../styles/Username.module.css';
 
@@ -37,6 +38,9 @@ export default function Username() {
 
           <div className="title flex flex-col items-center">
             <div className=' content-center justify-between flex flex-nowrap'>
+            {/* <a class="navbar-brand" href="#">
+      <img src={Logo2} alt="..." height="6"/>
+    </a> */}
           <img src={Logo} className={styles.profile_img2} alt="avatar" />
             <h5 className='text-5xl font-bold my-1'>M.B.M University!</h5>
             </div>
