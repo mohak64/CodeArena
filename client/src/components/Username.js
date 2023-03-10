@@ -59,8 +59,13 @@ export default function Username() {
                   <button className={styles.btn} type='submit'>Let's Go</button>
               </div>
 
+
               <div className="text-center py-4">
                 <span className='text-gray-500'>Don't have an account? <Link className='text-red-500' to="/register">Register Now</Link></span>
+              </div>
+
+              <div className="text-center py-4">
+                <span className='text-gray-500'>Everything is Case Sensative.</span>
               </div>
 
           </form>
