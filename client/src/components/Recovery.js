@@ -28,7 +28,7 @@ export default function Recovery() {
         return navigate('/reset')
       }  
     } catch (error) {
-      return toast.error('Wront OTP! Check email again!')
+      return toast.error('Wrong  OTP! Check email again!')
     }
   }
 
