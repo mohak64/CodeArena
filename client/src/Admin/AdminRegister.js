@@ -5,18 +5,19 @@ import toast, { Toaster } from 'react-hot-toast';
 import { useFormik } from 'formik';
 import { registerValidation } from '../helper/validate';
 import convertToBase64 from '../helper/convert';
-import { registerUser } from '../helper/helper'
+import { adminregisterUser } from '../helper/helper'
 
 
 import styles from '../styles/Username.module.css';
 
-export default function Register() {
+export default function AdminRegister() {
 
   const navigate = useNavigate()
   const [file, setFile] = useState()
 
   const formik = useFormik({
     initialValues : {
+      specialkey: '',
       email: '',
       username: '',
       password : ''
@@ -26,14 +27,15 @@ export default function Register() {
     validateOnChange: false,
     onSubmit : async values => {
       values = await Object.assign(values, { profile : file || ''})
-      let registerPromise = registerUser(values)
+      let registerPromise = adminregisterUser(values)
+      console.log(values);
       toast.promise(registerPromise, {
         loading: 'Creating...',
         success : <b>Register Successfully...!</b>,
         error : <b>Could not Register.</b>
       });
 
-      registerPromise.then(function(){ navigate('/')});
+      registerPromise.then(function(){ navigate('/AdminLogin')});
     }
   })
 
@@ -52,10 +54,8 @@ export default function Register() {
         <div className={styles.glass} style={{ width: "45%", paddingTop: '3em'}}>
 
           <div className="title flex flex-col items-center">
-            <h4 className='text-5xl font-bold'>Register</h4>
-            <span className='py-4 text-xl w-2/3 text-center text-gray-500'>
-                Register to compete with fellow MBMite's!
-            </span>
+            <h4 className='text-5xl font-bold'>Admin Register</h4>
+            
           </div>
 
           <form className='py-1' onSubmit={formik.handleSubmit}>
@@ -68,7 +68,7 @@ export default function Register() {
               </div>
 
               <div className="textbox flex flex-col items-center gap-6">
-                
+                  <input {...formik.getFieldProps('specialkey')} className={styles.textbox} type="text" placeholder='Specialkey*' />
                   <input {...formik.getFieldProps('email')} className={styles.textbox} type="text" placeholder='Email*' />
                   <input {...formik.getFieldProps('username')} className={styles.textbox} type="text" placeholder='Username*' />
                   <input {...formik.getFieldProps('password')} className={styles.textbox} type="text" placeholder='Password*' />
@@ -76,11 +76,9 @@ export default function Register() {
               </div>
 
               <div className="text-center py-2">
-                <span className='text-gray-500'>Already Register? <Link className='text-red-500' to="/">Login Now</Link></span>
+                <span className='text-gray-500'>Already Register? <Link className='text-red-500' to="/AdminLogin">Login as Admin Now</Link></span>
               </div>
-              <div className="text-center py-1">
-                <span className='text-gray-500'> Register as <Link className='text-red-500' to="/AdminRegister">Admin..</Link></span>
-              </div>
+             
               <div className="text-center py-2">
                 <span className='text-gray-500'>Click on Profile Avatar, Select the image. </span>
               </div>
@@ -92,4 +90,3 @@ export default function Register() {
     </div>
   )
 }
-

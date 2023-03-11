@@ -52,6 +52,27 @@ export async function registerUser(credentials){
     }
 }
 
+/** register admin function */
+export async function adminregisterUser(credentials){
+    if(credentials.specialkey === "jqwbncjbwjcbnuqbwcjbqubcjwuwgcu7tgw7578t578578tc8ywgbjhbcjwbcjb88y68989yquigbcuibquibd78y8968968cugquicghbhqcuiqu7856778786q"){
+    try {
+        const { data : { msg }, status } = await axios.post(`/api/register`, credentials);
+
+        let { username, email } = credentials;
+
+        /** send email */
+        if(status === 201){
+            await axios.post('/api/registerMail', { username, userEmail : email, text : msg})
+        }
+
+        return Promise.resolve(msg)
+    } catch (error) {
+        return Promise.reject({ error })
+    }
+}
+else return Promise.reject({ error: "Invalid Special Key, Chup Chap Register as User Kar!" })
+}
+
 /** login function */
 export async function verifyPassword({ username, password }){
     try {

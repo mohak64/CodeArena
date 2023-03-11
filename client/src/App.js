@@ -15,6 +15,9 @@ import Dashboard from './Admin/Dashboard'
 import CreateContest from './Admin/CreateContest'
 import PastContest from './Admin/PastContest'
 import LeaderBoard from './Admin/LeaderBoard'
+import AdminRegister from './Admin/AdminRegister'
+import AdminLogin from './Admin/AdminLogin'
+import AdminPassword from './Admin/AdminPassword'
 /** auth middleware */
 import { AuthorizeUser, ProtectRoute } from './middleware/auth'
 
@@ -25,8 +28,20 @@ const router = createBrowserRouter([
         element : <Username></Username>
     },
     {
+        path : '/AdminLogin',
+        element : <AdminLogin></AdminLogin>
+    },
+    {
+        path : '/AdminPassword',
+        element : <ProtectRoute><AdminPassword></AdminPassword></ProtectRoute>
+    },
+    {
         path : '/register',
         element : <Register></Register>
+    },
+    {
+        path : '/AdminRegister',
+        element : <AdminRegister></AdminRegister>
     },
     {
         path : '/password',

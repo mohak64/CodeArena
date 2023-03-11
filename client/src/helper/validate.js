@@ -17,6 +17,24 @@ export async function usernameValidate(values){
     return errors;
 }
 
+/** validate admin login page username */
+export async function adminusernameValidate(values){
+    const errors = adminusernameVerify({}, values);
+    
+        
+
+    if(values.username){
+        // check user exist or not
+        const { status } = await authenticate(values.username);
+        
+        if(status !== 200){
+            errors.exist = toast.error('Admin does not exist...!')
+        }
+    }
+
+    return errors;
+}
+
 /** validate password */
 export async function passwordValidate(values){
     const errors = passwordVerify({}, values);
@@ -78,6 +96,19 @@ function usernameVerify(error = {}, values){
         error.username = toast.error('Username Required...!');
     }else if(values.username.includes(" ")){
         error.username = toast.error('Invalid Username...!')
+    }
+
+    return error;
+}
+
+/** validate admin username */
+function adminusernameVerify(error = {}, values){
+    if(values.SpecialKey !== 'bnfjwhbujchwughuctg7t767862862897e8hwindkjnwdkny287389273892789372897w8927w8h2ihnjknjnbjbnjbnjbnjibnjig8ty7687t78t786786788y'){
+        error.username = toast.error('Invalid Special Key...!');
+    } else if(!values.username){
+        error.username = toast.error('Admin Username Required...!');
+    }else if(values.username.includes(" ")){
+        error.username = toast.error('Invalid Admin Username...!')
     }
 
     return error;
