@@ -12,6 +12,16 @@ export const AuthorizeUser = ({ children }) => {
     return children;
 }
 
+export const AuthorizeAdmin = ({ children }) => {
+    const Admintoken = localStorage.getItem('Admintoken');
+
+    if(!Admintoken){
+        return <Navigate to={'/'} replace={true}></Navigate>
+    }
+
+    return children;
+}
+
 
 export const ProtectRoute = ({ children }) => {
     const username = useAuthStore.getState().auth.username;

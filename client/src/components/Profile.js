@@ -84,7 +84,7 @@ export default function Profile() {
               </button>
 
               <div className="text-center py-4">
-                <span className='text-gray-500'><Link className='text-red-500' to="/Dashboard">Dasboard</Link></span>
+                <span className='text-gray-500'><Link className='text-red-500' to="/">Dasboard</Link></span>
               </div>
 
               

@@ -145,6 +145,50 @@ export async function login(req,res){
     }
 }
 
+// POST: http://localhost:8080/api/Adminlogin
+export async function Adminlogin(req,res){
+   
+    const { username, password } = req.body;
+
+    try {
+        
+        UserModel.findOne({ username })
+            .then(user => {
+                bcrypt.compare(password, user.password)//second arg is the encrypted pass from database
+                    .then(passwordCheck => {
+
+                        if(!passwordCheck) return res.status(400).send({ error: "Don't have Password"});
+
+                        // create jwt token
+                        const Admintoken = jwt.sign({
+                                        userId: user._id,
+                                        username : user.username
+                                    }, ENV.JWT_SECRET , { expiresIn : "24h"});
+
+                        // const token =jwt.sign({
+                        //                     userId: user._id,
+                        //                     username : user.username
+                        //                 }, 'secret' , { expiresIn : "24h"});
+
+                        return res.status(200).send({
+                            msg: "Login Successful...!",
+                            username: user.username,
+                            Admintoken
+                        });                                    
+
+                    })
+                    .catch(error =>{
+                        return res.status(400).send({ error: "Password does not Match"})
+                    })
+            })
+            .catch( error => {
+                return res.status(404).send({ error : "Username not Found"});
+            })
+
+    } catch (error) {
+        return res.status(500).send({ error});
+    }
+}
 
 /** GET: http://localhost:8080/api/user/example123 */
 export async function getUser(req,res){

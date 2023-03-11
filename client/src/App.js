@@ -19,7 +19,7 @@ import AdminRegister from './Admin/AdminRegister'
 import AdminLogin from './Admin/AdminLogin'
 import AdminPassword from './Admin/AdminPassword'
 /** auth middleware */
-import { AuthorizeUser, ProtectRoute } from './middleware/auth'
+import { AuthorizeUser,AuthorizeAdmin, ProtectRoute } from './middleware/auth'
 
 /** root routes */
 const router = createBrowserRouter([
@@ -49,19 +49,19 @@ const router = createBrowserRouter([
     },
     {
         path : '/Dashboard',
-        element : <Dashboard/>
+        element : <AuthorizeAdmin><Dashboard/></AuthorizeAdmin>
     },
     {
         path : '/CreateContest',
-        element : <CreateContest/>
+        element : <AuthorizeAdmin><CreateContest/></AuthorizeAdmin>
     },
     {
         path : '/LeaderBoard',
-        element : <LeaderBoard/>
+        element : <AuthorizeAdmin><LeaderBoard/></AuthorizeAdmin>
     },
     {
         path : '/PastContest',
-        element : <PastContest/>
+        element : <AuthorizeAdmin><PastContest/></AuthorizeAdmin>
     },
     {
         path : '/profile',

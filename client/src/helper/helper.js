@@ -90,7 +90,7 @@ export async function adminverifyPassword({ username, password }){
     try {
         
         if(username){
-            const { data } = await axios.post('/api/login', { username, password })
+            const { data } = await axios.post('/api/Adminlogin', { username, password })
             return Promise.resolve({ data });
         }
     } catch (error) {

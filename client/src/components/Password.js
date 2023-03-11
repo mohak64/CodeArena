@@ -32,6 +32,7 @@ export default function Password() {
       });
 
       loginPromise.then(res => {
+        console.log(res.data)
         let { token } = res.data;
         localStorage.setItem('token', token);
         navigate('/profile')

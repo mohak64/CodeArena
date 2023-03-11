@@ -82,9 +82,7 @@ export async function profileValidation(values){
 function passwordVerify(errors = {}, values){
     /* eslint-disable no-useless-escape */
     const specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
-    if(values.SpecialKey != "jbhjbjbwjgbuygwughh7390r7937r8978938diomnkl;dmwl;md.w,d.,wldjkowdoiuq90id90q90d88908209whikwhicnwihcih2iduhi272e897289dd28dh"){
-        errors.password = toast.error("invalid SpecialKey...!");
-    } else if(!values.password){
+    if(!values.password){
         errors.password = toast.error("Password Required...!");
     } else if(values.password.includes(" ")){
         errors.password = toast.error("Wrong Password...!");

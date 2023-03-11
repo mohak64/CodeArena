@@ -40,8 +40,9 @@ export default function AdminPassword() {
       }
 
       loginPromise.then(res => {
-        let { token } = res.data;
-        localStorage.setItem('token', token);
+        console.log(res.data)
+        let { Admintoken } = res.data;
+        localStorage.setItem('Admintoken', Admintoken);
         navigate('/Dashboard')
       })
     }
