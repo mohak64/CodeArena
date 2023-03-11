@@ -28,6 +28,10 @@
 .btn{
     @apply border bg-indigo-500 w-3/4 py-4 rounded-lg text-gray-50 text-xl shadow-sm text-center;
 }
+.btn2{
+    @apply border bg-indigo-500 w-2/4 h-2/4 py-4 rounded-lg text-gray-50 text-xl shadow-sm text-center;
+}
+
 
 .btn:hover{
     background-color: #ff6a6a;

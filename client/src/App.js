@@ -10,8 +10,11 @@ import Profile from './components/Profile';
 import Recovery from './components/Recovery';
 import Reset from './components/Reset';
 import PageNotFound from './components/PageNotFound';
-
-
+import ContestPage from './components/ContestPage';
+import Dashboard from './Admin/Dashboard'
+import CreateContest from './Admin/CreateContest'
+import PastContest from './Admin/PastContest'
+import LeaderBoard from './Admin/LeaderBoard'
 /** auth middleware */
 import { AuthorizeUser, ProtectRoute } from './middleware/auth'
 
@@ -30,12 +33,32 @@ const router = createBrowserRouter([
         element : <ProtectRoute><Password /></ProtectRoute>
     },
     {
+        path : '/Dashboard',
+        element : <Dashboard/>
+    },
+    {
+        path : '/CreateContest',
+        element : <CreateContest/>
+    },
+    {
+        path : '/LeaderBoard',
+        element : <LeaderBoard/>
+    },
+    {
+        path : '/PastContest',
+        element : <PastContest/>
+    },
+    {
         path : '/profile',
         element : <AuthorizeUser><Profile /></AuthorizeUser>
     },
     {
         path : '/recovery',
         element : <Recovery></Recovery>
+    },
+    {
+        path : '/ContestPage',
+        element : <AuthorizeUser><ContestPage></ContestPage></AuthorizeUser>
     },
     {
         path : '/reset',
