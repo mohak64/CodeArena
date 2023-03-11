@@ -85,6 +85,19 @@ export async function verifyPassword({ username, password }){
     }
 }
 
+/** admin login function */
+export async function adminverifyPassword({ username, password }){
+    try {
+        
+        if(username){
+            const { data } = await axios.post('/api/login', { username, password })
+            return Promise.resolve({ data });
+        }
+    } catch (error) {
+        return Promise.reject({ error : "Password doesn't Match...!"})
+    }
+}
+
 /** update user profile function */
 export async function updateUser(response){
     try {

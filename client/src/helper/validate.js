@@ -42,6 +42,13 @@ export async function passwordValidate(values){
     return errors;
 }
 
+/** validate admin password */
+export async function adminpasswordValidate(values){
+    const errors = adminpasswordVerify({}, values);
+
+    return errors;
+}
+
 /** validate reset password */
 export async function resetPasswordValidation(values){
     const errors = passwordVerify({}, values);
@@ -73,6 +80,25 @@ export async function profileValidation(values){
 
 /** validate password */
 function passwordVerify(errors = {}, values){
+    /* eslint-disable no-useless-escape */
+    const specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+    if(values.SpecialKey != "jbhjbjbwjgbuygwughh7390r7937r8978938diomnkl;dmwl;md.w,d.,wldjkowdoiuq90id90q90d88908209whikwhicnwihcih2iduhi272e897289dd28dh"){
+        errors.password = toast.error("invalid SpecialKey...!");
+    } else if(!values.password){
+        errors.password = toast.error("Password Required...!");
+    } else if(values.password.includes(" ")){
+        errors.password = toast.error("Wrong Password...!");
+    }else if(values.password.length < 4){
+        errors.password = toast.error("Password must be more than 4 characters long");
+    }else if(!specialChars.test(values.password)){
+        errors.password = toast.error("Password must have special character");
+    }
+
+    return errors;
+}
+
+/** validate admin password */
+function adminpasswordVerify(errors = {}, values){
     /* eslint-disable no-useless-escape */
     const specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
 
