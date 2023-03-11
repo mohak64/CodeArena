@@ -79,7 +79,7 @@ export default function Register() {
                 <span className='text-gray-500'>Already Register? <Link className='text-red-500' to="/">Login Now</Link></span>
               </div>
               <div className="text-center py-1">
-                <span className='text-gray-500'> Register as <Link className='text-red-500' to="/AdminRegister">Admin..</Link></span>
+                <span className='text-gray-500'> Register as <Link className='text-red-500' to="/AdminRegister">Admin</Link></span>
               </div>
               <div className="text-center py-2">
                 <span className='text-gray-500'>Click on Profile Avatar, Select the image. </span>

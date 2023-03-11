@@ -60,11 +60,15 @@ export default function Username() {
               </div>
 
 
-              <div className="text-center py-4">
+              <div className="text-center py-2">
                 <span className='text-gray-500'>Don't have an account? <Link className='text-red-500' to="/register">Register Now</Link></span>
               </div>
 
-              <div className="text-center py-4">
+              <div className="text-center py-1">
+                <span className='text-gray-500'>Login as <Link className='text-red-500' to="/AdminLogin">Admin</Link></span>
+              </div>
+
+              <div className="text-center py-2">
                 <span className='text-gray-500'>Everything is Case Sensative.</span>
               </div>
 

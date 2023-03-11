@@ -76,7 +76,7 @@ export default function AdminRegister() {
               </div>
 
               <div className="text-center py-2">
-                <span className='text-gray-500'>Already Register? <Link className='text-red-500' to="/AdminLogin">Login as Admin Now</Link></span>
+                <span className='text-gray-500'>Already Register? <Link className='text-red-500' to="/AdminLogin">Login as Admin</Link></span>
               </div>
              
               <div className="text-center py-2">

@@ -62,11 +62,11 @@ export default function AdminLogin() {
               </div>
 
 
-              <div className="text-center py-4">
+              <div className="text-center py-2">
                 <span className='text-gray-500'>Login as  <Link className='text-red-500' to="/">User</Link></span>
               </div>
 
-              <div className="text-center py-4">
+              <div className="text-center py-2">
                 <span className='text-gray-500'>Everything is Case Sensative.</span>
               </div>
 
