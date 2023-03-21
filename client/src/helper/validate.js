@@ -69,6 +69,16 @@ export async function registerValidation(values){
     return errors;
 }
 
+/** validate Contest Creation form */
+export async function contestValidation(values){
+    const errors = adminusernameVerify({}, values);
+    adminpasswordVerify(errors, values);
+    emailVerify(errors, values);
+
+    return errors;
+}
+
+
 /** validate profile page */
 export async function profileValidation(values){
     const errors = emailVerify({}, values);

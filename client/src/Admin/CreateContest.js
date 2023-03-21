@@ -1,37 +1,48 @@
-import React from 'react'
-import {  useNavigate } from 'react-router-dom'
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
-import toast, { Toaster } from 'react-hot-toast';
-import { useFormik } from 'formik';
-import { registerValidation } from '../helper/validate';
+import toast, { Toaster } from "react-hot-toast";
+import { useFormik } from "formik";
+import { contestValidation } from "../helper/validate";
 
-import { registerUser } from '../helper/helper'
+import { registerContest } from "../helper/helper";
 
-
-import styles from '../styles/Username.module.css';
+import styles from "../styles/Username.module.css";
 function CreateContest() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const formik = useFormik({
-    initialValues : {
-      email: '',
-      username: '',
-      password : ''
+    initialValues: {
+      contestId : "",
+      ques1d : "",
+      ques1i : "",
+      ques1o : "",
+      ques2d : "",
+      ques2i : "",
+      ques2o : "",
+      ques3d : "",
+      ques3i : "",
+      ques3o : "",
+      start : "",
+      end : "",
     },
-    validate : registerValidation,
+    // validate: contestValidation,
     validateOnBlur: false,
     validateOnChange: false,
-    onSubmit : async values => {
-      values = await Object.assign(values)
-      let registerPromise = registerUser(values)
+    onSubmit: async (values) => {
+      values = await Object.assign(values);
+      let registerPromise = registerContest(values);
       toast.promise(registerPromise, {
-        loading: 'Creating...',
-        success : <b>Register Successfully...!</b>,
-        error : <b>Could not Register.</b>
+        loading: "Creating...",
+        success: <b>Contest Register Successfully...!</b>,
+        error: <b>Could not Register Contest..</b>,
+        
       });
-
-      registerPromise.then(function(){ navigate('/')});
-    }
-  })
+      
+      registerPromise.then(function () {
+        navigate("/Dashboard");
+      });
+    },
+  });
 
   return (
     <>
@@ -42,119 +53,85 @@ function CreateContest() {
           <div className={styles.glass2} style={{ paddingTop: "3em" }}>
             <div className="title flex flex-col items-center"></div>
             <h4 className="text-5xl text-center font-bold">Create Contest</h4>
-            {/* <div class="mb-3">
-              <label for="exampleFormControlTextarea1" class="form-label">
-                Enter the Contest ID..
-              </label>
-              <textarea
-                class="form-control"
-                id="exampleFormControlTextarea1"
-                rows="3"
-              ></textarea>
-            </div>
-            <div class="mb-3">
-              <label for="exampleFormControlTextarea1" class="form-label">
-                Enter the Question 1..
-              </label>
-              <textarea
-                class="form-control"
-                id="exampleFormControlTextarea1"
-                rows="3"
-              ></textarea>
-            </div>
-            <div class="mb-3">
-              <label for="exampleFormControlTextarea1" class="form-label">
-                Enter the Input TestCases for Q1..
-              </label>
-              <textarea
-                class="form-control"
-                id="exampleFormControlTextarea1"
-                rows="3"
-              ></textarea>
-            </div>
-            <div class="mb-3">
-              <label for="exampleFormControlTextarea1" class="form-label">
-                Expected Output for Q1..
-              </label>
-              <textarea
-                class="form-control"
-                id="exampleFormControlTextarea1"
-                rows="3"
-              ></textarea>
-            </div>
-            <div class="mb-3">
-              <label for="exampleFormControlTextarea1" class="form-label">
-                Enter the Question 2..
-              </label>
-              <textarea
-                class="form-control"
-                id="exampleFormControlTextarea1"
-                rows="3"
-              ></textarea>
-            </div>
-            <div class="mb-3">
-              <label for="exampleFormControlTextarea1" class="form-label">
-                Enter the Input TestCases for Q2..
-              </label>
-              <textarea
-                class="form-control"
-                id="exampleFormControlTextarea1"
-                rows="3"
-              ></textarea>
-            </div>
-            <div class="mb-3">
-              <label for="exampleFormControlTextarea1" class="form-label">
-                Expected Output for Q2..
-              </label>
-              <textarea
-                class="form-control"
-                id="exampleFormControlTextarea1"
-                rows="3"
-              ></textarea>
-            </div>
-            <div class="mb-3">
-              <label for="exampleFormControlTextarea1" class="form-label">
-                Enter the Question 3..
-              </label>
-              <textarea
-                class="form-control"
-                id="exampleFormControlTextarea1"
-                rows="3"
-              ></textarea>
-            </div>
-            <div class="mb-3">
-              <label for="exampleFormControlTextarea1" class="form-label">
-                Enter the Input TestCases for Q3..
-              </label>
-              <textarea
-                class="form-control"
-                id="exampleFormControlTextarea1"
-                rows="3"
-              ></textarea>
-            </div>
-            <div class="mb-3">
-              <label for="exampleFormControlTextarea1" class="form-label">
-                Expected Output for Q3..
-              </label>
-              <textarea
-                class="form-control"
-                id="exampleFormControlTextarea1"
-                rows="3"
-              ></textarea>
-            </div> */}
-            <div className="textbox flex flex-col items-center my-5 gap-6">
-                <input {...formik.getFieldProps('contestId')} className={styles.textbox2} type="text" placeholder='contest Id*' />
-                <input {...formik.getFieldProps('ques1d')} className={styles.textbox2} type="text" placeholder='Q1 Description*' />
-                <input {...formik.getFieldProps('ques1i')} className={styles.textbox2} type="text" placeholder='Q1 Input Test Cases*' />
-                <input {...formik.getFieldProps('ques1o')} className={styles.textbox2} type="text" placeholder='Q1 Expected Output*' />
-                <input {...formik.getFieldProps('ques2d')} className={styles.textbox2} type="text" placeholder='Q2 Description*' />
-                <input {...formik.getFieldProps('ques2i')} className={styles.textbox2} type="text" placeholder='Q2 Input Test Cases*' />
-                <input {...formik.getFieldProps('ques2o')} className={styles.textbox2} type="text" placeholder='Q2 Expected Output*' />
-                <input {...formik.getFieldProps('ques3d')} className={styles.textbox2} type="text" placeholder='Q3 Description*' />
-                <input {...formik.getFieldProps('ques3i')} className={styles.textbox2} type="text" placeholder='Q3 Input Test Cases*' />
-                <input {...formik.getFieldProps('ques3o')} className={styles.textbox2} type="text" placeholder='Q3 Expected Output*' />
-                <button className={styles.btn} type='submit'>Create Contest</button>
-            </div>
+            <form className="py-1" onSubmit={formik.handleSubmit}>
+              <div className="textbox flex flex-col items-center my-5 gap-6">
+                <input
+                  {...formik.getFieldProps("contestId")}
+                  className={styles.textbox2}
+                  type="text"
+                  placeholder="contest Id*"
+                />
+                <input
+                  {...formik.getFieldProps("ques1d")}
+                  className={styles.textbox2}
+                  type="text"
+                  placeholder="Q1 Description*"
+                />
+                <input
+                  {...formik.getFieldProps("ques1i")}
+                  className={styles.textbox2}
+                  type="text"
+                  placeholder="Q1 Input Test Cases*"
+                />
+                <input
+                  {...formik.getFieldProps("ques1o")}
+                  className={styles.textbox2}
+                  type="text"
+                  placeholder="Q1 Expected Output*"
+                />
+                <input
+                  {...formik.getFieldProps("ques2d")}
+                  className={styles.textbox2}
+                  type="text"
+                  placeholder="Q2 Description*"
+                />
+                <input
+                  {...formik.getFieldProps("ques2i")}
+                  className={styles.textbox2}
+                  type="text"
+                  placeholder="Q2 Input Test Cases*"
+                />
+                <input
+                  {...formik.getFieldProps("ques2o")}
+                  className={styles.textbox2}
+                  type="text"
+                  placeholder="Q2 Expected Output*"
+                />
+                <input
+                  {...formik.getFieldProps("ques3d")}
+                  className={styles.textbox2}
+                  type="text"
+                  placeholder="Q3 Description*"
+                />
+                <input
+                  {...formik.getFieldProps("ques3i")}
+                  className={styles.textbox2}
+                  type="text"
+                  placeholder="Q3 Input Test Cases*"
+                />
+                <input
+                  {...formik.getFieldProps("ques3o")}
+                  className={styles.textbox2}
+                  type="text"
+                  placeholder="Q3 Expected Output*"
+                />
+                <input
+                  {...formik.getFieldProps("start")}
+                  className={styles.textbox2}
+                  type="time"
+                  placeholder="start*"
+                />
+                <input
+                  {...formik.getFieldProps("end")}
+                  className={styles.textbox2}
+                  type="time"
+                  placeholder="end*"
+                />
+                <button className={styles.btn} type="submit">
+                  Create Contest
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
