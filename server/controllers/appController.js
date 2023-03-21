@@ -248,6 +248,29 @@ export async function Adminlogin(req, res) {
     }
 }
 
+/** GET: http://localhost:8080/api/contest/123 */
+export async function getContest(req, res) {
+    const { contestId } = req.params;
+
+    try {
+        if (!contestId) return res.status(501).send({ error: "Invalid Contest-Id" });
+
+        ContestModel.findOne({ contestId }, function (err, user) {
+            if (err) return res.status(500).send({ err });
+            if (!user)
+                return res.status(501).send({ error: "Couldn't Find the contest" });
+
+            /** remove password from user */
+            // mongoose return unnecessary data with object so convert it into json
+            const { ...rest } = Object.assign({}, user.toJSON());
+
+            return res.status(201).send(rest);
+        });
+    } catch (error) {
+        return res.status(404).send({ error: "Cannot Find contest-Id Data" });
+    }
+}
+
 /** GET: http://localhost:8080/api/user/example123 */
 export async function getUser(req, res) {
     const { username } = req.params;
