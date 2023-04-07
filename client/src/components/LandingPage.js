@@ -210,7 +210,7 @@ export default function LandingPage() {
       </div>
       <div className="container">
         <div className="inner row">
-          <div className="col-sm-6 text-left mt-5" id="upsolving">
+          <div className="col-sm-6 text-left mt-7" id="upsolving">
             <div className="image-name2 font-semibold text-purple-900">
               Coding Contest..
             </div>
