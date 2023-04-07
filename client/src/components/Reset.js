@@ -44,6 +44,7 @@ export default function Reset() {
   if(status && status !== 201) return <Navigate to={'/password'} replace={true}></Navigate>
 
   return (
+    <div style={{ backgroundColor: "#f8ddfc" }}>
     <div className="container mx-auto">
 
       <Toaster position='top-center' reverseOrder={false}></Toaster>
@@ -69,6 +70,7 @@ export default function Reset() {
 
         </div>
       </div>
+    </div>
     </div>
   )
 }

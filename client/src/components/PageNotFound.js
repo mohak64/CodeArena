@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 export default function PageNotFound  () {
   return (
     <section>
+      <div style={{ backgroundColor: "#f8ddfc" }}>
       <div className="container flex items-center px-12 py-12 mx-auto">
         <div>
           <p className="text-sm font-medium text-indigo-500 dark:text-indigo-400">
@@ -29,6 +30,7 @@ export default function PageNotFound  () {
             </button>
           </div>
         </div>
+      </div>
       </div>
     </section>
   );

@@ -63,6 +63,7 @@ export default function Profile() {
     return <h1 className="text-xl text-red-500">{serverError.message}</h1>;
 
   return (
+    <div style={{ backgroundColor: "#f8ddfc" }}>
     <div className="container mx-auto">
       <Toaster position="top-center" reverseOrder={false}></Toaster>
 
@@ -165,6 +166,7 @@ export default function Profile() {
           </form>
         </div>
       </div>
+    </div>
     </div>
   );
 }

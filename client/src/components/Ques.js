@@ -17,7 +17,7 @@ const Ques = (props) => {
     } = props;
     return(
     <div>
-        
+        <div style={{ backgroundColor: "#f8ddfc" }}>
         <div className="container mx-auto">
         <h2>Contest No. - {contestId}</h2>
         <div className="card my-3">
@@ -62,7 +62,7 @@ const Ques = (props) => {
       </div>
 
     </div>
-    
+    </div>
     );
 };
 

@@ -44,6 +44,7 @@ export default function Password() {
   if(serverError) return <h1 className='text-xl text-red-500'>{serverError.message}</h1>
 
   return (
+    <div style={{ backgroundColor: "#f8ddfc" }}>
     <div className="container mx-auto">
 
       <Toaster position='top-center' reverseOrder={false}></Toaster>
@@ -77,6 +78,7 @@ export default function Password() {
 
         </div>
       </div>
+    </div>
     </div>
   )
 }

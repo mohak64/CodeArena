@@ -17,7 +17,7 @@ export default function ContestPage() {
 
   return (
     <>
-   
+    <div style={{ backgroundColor: "#f8ddfc" }}>
     <Ques
      contestId={"bjcbwbcwbcjbwjbc"}
      ques1d={"Given an integer array nums, return the number of subarrays filled with 0. A subarray is a contiguous non-empty sequence of elements within an array."}
@@ -73,6 +73,7 @@ export default function ContestPage() {
           </div>
         </div>
       </div> */}
+      </div>
     </>
   );
 }
