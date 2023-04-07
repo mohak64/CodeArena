@@ -9,6 +9,7 @@ import { FaPhoneAlt, FaEnvelope, FaPrint } from "react-icons/fa";
 import { FiMapPin } from "react-icons/fi";
 import { Link } from "react-router-dom";
 export default function LandingPage() {
+  // const navigate = useNavigate();
   return (
     <>
       <div className="shapedividers_com-4654">
@@ -48,12 +49,13 @@ export default function LandingPage() {
               </div>
             </div>
             <button id="login">
-              <p className="btn-txt">Login </p>
+              <p className="btn-txt"><Link  to="/Username">Login</Link> </p>
               <div className="fill-container"></div>
               <span className="first"></span>
               <span className="second"></span>
               <span className="third"></span>
               <span className="fourth"></span>
+              
             </button>
           </nav>
         </div>
@@ -97,7 +99,7 @@ export default function LandingPage() {
                             </div>
                             <div>
                               <button id="register">
-                                <p className="btn-txt">Register</p>
+                                <p className="btn-txt"><Link  to="/register">Register</Link></p>
                                 <span className="first"></span>
                                 <span className="second"></span>
                                 <span className="third"></span>
