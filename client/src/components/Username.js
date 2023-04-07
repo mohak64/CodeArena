@@ -29,7 +29,8 @@ export default function Username() {
   })
 
   return (
-    <div className="container mx-auto">
+    <div style={{ backgroundColor: "#f8ddfc" }}>
+    <div className="container mx-auto" >
 
       <Toaster position='top-center' reverseOrder={false}></Toaster>
 
@@ -76,6 +77,7 @@ export default function Username() {
 
         </div>
       </div>
+    </div>
     </div>
   )
 }

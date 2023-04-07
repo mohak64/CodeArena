@@ -5,57 +5,71 @@ import Typewritter from "typewriter-effect";
 import trophy5 from "../image/Trophy3.png";
 import trophy from "../image/AA2.png";
 import trophy2 from "../image/BB.png";
+import trophy3 from "../image/CC.png";
 import { FaPhoneAlt, FaEnvelope, FaPrint } from "react-icons/fa";
 import { FiMapPin } from "react-icons/fi";
 import { Link } from "react-router-dom";
 export default function LandingPage() {
+  const [isShowMore, setIsShowMore] = useState(false);
+
+  const toggleReadMoreLess = () => {
+    setIsShowMore(!isShowMore);
+  };
   // const navigate = useNavigate();
+  const Data = [
+    {
+      id: 1,
+      title: "CodeArena - Participating in Contest..",
+      image: trophy3,
+      tags: [],
+      description1:
+        "Contests provide a structured environment for programmers to test and improve their skills, solve problems under time pressure, and compare their performance against other participants.",
+      description2:
+        "By participating in contests, you can also learn new programming concepts and techniques, as well as become familiar with different types of problems. Moreover, participating in contests can help you build a strong portfolio of coding accomplishments, which can be valuable for future job opportunities or academic pursuits.",
+    },
+    {
+      id: 2,
+      title: "Consistency - Analysing the problem..",
+      image: trophy,
+      tags: [],
+      description1:
+        "Consistently participating in coding contests helps in preparing for technical interviews. It builds problem-solving skills, improves accuracy and efficiency, and boosts confidence. ",
+      description2:
+        "It also helps to identify areas that require improvement, allows you to focus on specific topics that need more practice, and develops muscle memory for commonly used techniques and code snippets. Participating in coding contests simulates the interview experience, providing an opportunity to showcase your problem-solving skills and develop confidence in your abilities.",
+    },
+    {
+      id: 3,
+      title: "Upsolving - Breaking barrier..",
+      image: trophy2,
+      tags: [],
+      description1:
+        "Upsolving after a contest helps in analyzing problems and preparing for technical interviews. It helps to identify gaps in understanding, reinforces coding concepts, and improves problem-solving skills. ",
+      description2:
+        "Additionally, it helps to build familiarity with common coding patterns and techniques and prepares for solving problems under time constraints in technical interviews. Solving problems after the contest also helps to identify the most efficient and effective solutions, allowing you to develop better problem-solving strategies.",
+    },
+  ];
   return (
     <>
       <div className="shapedividers_com-4654">
         <div className="container ">
           <nav className="navbar navbar-expand-lg " id="navbar">
             <div className="container-fluid ">
-              <a className="navbar-brand" href="#">
-                <h3>Code Arena</h3>
+              <a
+                className="navbar-brand text-4xl font-sans font-semibold italic"
+                href="#"
+              >
+                <h3>CodeArena</h3>
               </a>
-              <button
-                className="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-              >
-                <span className="navbar-toggler-icon"></span>
-              </button>
-              <div
-                className="collapse navbar-collapse "
-                id="navbarSupportedContent"
-              >
-                <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li className="nav-item ">
-                    <a className="nav-link active" aria-current="page" href="#">
-                      <h4>Home</h4>
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link" href="#">
-                      <h4>About Us</h4>
-                    </a>
-                  </li>
-                </ul>
-              </div>
             </div>
             <button id="login">
-              <p className="btn-txt"><Link  to="/Username">Login</Link> </p>
+              <p className="btn-txt">
+                <Link to="/Username">Login</Link>{" "}
+              </p>
               <div className="fill-container"></div>
               <span className="first"></span>
               <span className="second"></span>
               <span className="third"></span>
               <span className="fourth"></span>
-              
             </button>
           </nav>
         </div>
@@ -99,7 +113,9 @@ export default function LandingPage() {
                             </div>
                             <div>
                               <button id="register">
-                                <p className="btn-txt"><Link  to="/register">Register</Link></p>
+                                <p className="btn-txt">
+                                  <Link to="/register">Register</Link>
+                                </p>
                                 <span className="first"></span>
                                 <span className="second"></span>
                                 <span className="third"></span>
@@ -135,170 +151,123 @@ export default function LandingPage() {
       </div>
 
       {/* mid point */}
-      <div className="container">
-        <div className="star">
+
+      <div className="container ">
+        <div className="star font-family: 'Merriweather', serif !important;">
           How to become International Grandmaster, Guardian or 7 Star?
         </div>
       </div>
-      <div className="container midpoint-main">
-        <div className="box-m box-2" id="upsolving">
-          <img
-            src={trophy}
-            // height="2000"
-            // width="1500"
-            alt="Your image"
-            className="img-fluid img-fluid-2"
-          />
-          <div className="image-name">
-            CodeArena - Participating in Contest..
+
+      <div className="p-10 grid grid-cols-1 md:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 gap-5">
+        {Data.map((item) => (
+          <div
+            key={item.id}
+            className="rounded overflow-hidden shadow-lg dark:shadow-gray-800"
+          >
+            <img className="w-full" src={item.image} alt="Mountain" />
+            <div className="px-4 py-2">
+              <div className="font-bold text-xl mb-2 text-center text-purple-800 font-serif">
+                {item.title}
+              </div>
+
+              <p className="text-purple-800 font-medium font-serif">
+                {item.description1.substring(0, 10000)}
+              </p>
+              {isShowMore && (
+                <p className="text-purple-800 font-medium font-serif">
+                  {item.description2.substring(0, 10000)}
+                </p>
+              )}
+
+              <button
+                onClick={toggleReadMoreLess}
+                className="pb-0 text-purple-800 font-medium font-serif"
+              >
+                {isShowMore ? "Read Less" : "Read more.."}
+              </button>
+            </div>
           </div>
-          <p className="boxh">
-            <li>
-              Contests provide a structured environment for programmers to test
-              and improve their skills, solve problems under time pressure, and
-              compare their performance against other participants.{" "}
-            </li>
-            <li>
-              By participating in contests, you can also learn new programming
-              concepts and techniques, as well as become familiar with different
-              types of problems. Moreover, participating in contests can help
-              you build a strong portfolio of coding accomplishments, which can
-              be valuable for future job opportunities or academic pursuits.{" "}
-            </li>
-            <li>
-              Overall, contests offer a valuable opportunity for programmers to
-              sharpen their skills, learn new concepts, and gain recognition for
-              their coding abilities.
-            </li>
-          </p>
-        </div>
-        <div className="box-m box-2" id="upsolving">
-          <img
-            src={trophy2}
-            // height="2000"
-            // width="1500"
-            alt="Your image"
-            className="img-fluid img-fluid-2"
-          />
-          <div className="image-name">
-            Consistency - Analysing the problem..
-          </div>
-          <p className="boxh">
-            {" "}
-            <li>
-              Consistently participating in coding contests helps in preparing
-              for technical interviews. It builds problem-solving skills,
-              improves accuracy and efficiency, and boosts confidence.{" "}
-            </li>
-            <li>
-              It also helps to identify areas that require improvement, allows
-              you to focus on specific topics that need more practice, and
-              develops muscle memory for commonly used techniques and code
-              snippets. Participating in coding contests simulates the interview
-              experience, providing an opportunity to showcase your
-              problem-solving skills and develop confidence in your abilities.
-            </li>
-            <li>
-              {" "}
-              Overall, consistent participation in coding contests helps to
-              develop the problem-solving skills, accuracy, efficiency, and
-              confidence necessary to perform well in technical interviews,
-              making it an important aspect of interview preparation.
-            </li>
-          </p>
-        </div>
-        <div className="box-m box-1" id="upsolving">
-          <img
-            src={trophy2}
-            // height="2000"
-            // width="1500"
-            alt="Your image"
-            className="img-fluid img-fluid-2"
-          />
-          <div className="image-name">Upsolving - Breaking barrier..</div>
-          <p className="boxh">
-            <li>
-              Upsolving after a coding contest helps in analyzing coding
-              problems and preparing for technical interviews. It helps to
-              identify gaps in understanding, reinforces coding concepts, and
-              improves problem-solving skills.
-            </li>
-            <li>
-              {" "}
-              Additionally, it helps to build familiarity with common coding
-              patterns and techniques and prepares for solving problems under
-              time constraints in technical interviews. Solving problems after
-              the contest also helps to identify the most efficient and
-              effective solutions, allowing you to develop better
-              problem-solving strategies.
-            </li>
-            <li>
-              Overall, upsolving is an important aspect of continuous
-              improvement and growth in competitive programming. It is an
-              important aspect of continuous improvement and growth in the field
-              of competitive programming.
-            </li>
-          </p>
-        </div>
+        ))}
       </div>
 
       {/* conclusion              */}
-      <div className="container text-cente">
-        <h2 className="fear text-cente">
-          CodeArena will help you overcome your fear of
-          competitive programming..
-        </h2>
-        <h4 className="fear2">
-          {" "}
-          <i>
-            "CodeArena is not just about winning contests, it's also about
-            learning and improving your coding skills. So, even if you don't
-            win, you'll still have gained valuable experience and knowledge that
-            will help you in future coding challenges."
-          </i>
-        </h4>
+      <div className="bg-violet-100 p-px mt-5">
+        <div className="container">
+          <h2 className="fear text-center text-4xl">
+            CodeArena will help you overcome your fear of
+            competitive programming..
+          </h2>
+          <h4 className="fear2 text-2xl">
+            {" "}
+            <i>
+              "CodeArena is not just about winning contests, it's also about
+              learning and improving your coding skills. So, even if you don't
+              win, you'll still have gained valuable experience and knowledge
+              that will help you in future coding challenges."
+            </i>
+          </h4>
+        </div>
       </div>
       <div className="container">
         <div className="inner row">
-          <div className="col-sm-6" id="upsolving">
-            <div className="image-name2">Coding Contest..</div>
-            Welcome to our weekly competitive programming contest! Are you ready
-            to put your coding skills to the test and compete against other
-            talented programmers? <b>Every Tuesday</b>, we will be hosting a new
-            contest with a variety of challenges designed to challenge your
-            problem-solving abilities and push your coding skills to the limit..
+          <div className="col-sm-6 text-left mt-5" id="upsolving">
+            <div className="image-name2 font-semibold text-purple-900">
+              Coding Contest..
+            </div>
+            <div className="mt-4 font-medium">
+              Welcome to our weekly competitive programming contest! Are you
+              ready to put your coding skills to the test and compete against
+              other talented programmers? <b>Every Tuesday</b>, we will be
+              hosting a new contest with a variety of challenges designed to
+              challenge your problem-solving abilities and push your coding
+              skills to the limit..
+            </div>
           </div>
           <div className="col-sm-6" id="codingcontest">
-            <img
-              src={code}
-              // height="2000"
-              // width="1500"
-              alt="Your image"
-              className="img-fluid"
-            />
+            <img src={code} alt="Your image" className="img-fluid" />
           </div>
         </div>
       </div>
 
-      {/* landing page */}
-      <div style={{ backgroundImage: "url(/public/Background.jpg)" }}>
-        <div style={{ backgroundColor: "#5d54b0" }}>
-          <div className="container">
+      {/* footer */}
+      <div>
+        {/* 5d54b0 473f89*/}
+        <div style={{ backgroundColor: "#37306B" }}>
+          <div className="container mt-5">
             <div className="row py-5 text-white">
               <div className="col-md-4 col-sm-12">
                 <h4 className="text-warning">CodeArena</h4>
-                <p>
-                  In this section we should write about our company to introduce
-                  your company or something else.
+                <p className="mt-2">
+                  Every Tuesday!
+                  <br />
+                  See you at the Contest.
                 </p>
               </div>
               <div className="col-md-3 col-sm-12">
-                <h4 className="text-warning">Company</h4>
+                <h4 className="text-warning mb-2">Company</h4>
                 {/* <p><Link className="footer-item text-white" to="/about" style={{ cursor: 'pointer', textDecoration: 'none' }}>About Us</Link></p>
                     <p><Link className="footer-item text-white" to="/about" style={{ cursor: 'pointer', textDecoration: 'none' }}>Careers</Link></p>
-                    <p><Link className="footer-item text-white" to="/services" style={{ cursor: 'pointer', textDecoration: 'none' }}>Our Team</Link></p>
+                    
                     <p><Link className="footer-item text-white" to="/contact us" style={{ cursor: 'pointer', textDecoration: 'none' }}>Contact Us</Link></p>
                     <p><Link className="footer-item text-white" to="/privacy" style={{ cursor: 'pointer', textDecoration: 'none' }}>Privacy Policy</Link></p> */}
+                <p>
+                  <Link
+                    className=" footer-item text-white "
+                    to="/Team"
+                    style={{ cursor: "pointer", textDecoration: "none" }}
+                  >
+                    Our Team
+                  </Link>
+                </p>
+                <p>
+                  <Link
+                    className="footer-item text-white"
+                    to="/AdminLogin"
+                    style={{ cursor: "pointer", textDecoration: "none" }}
+                  >
+                    Admin Login
+                  </Link>
+                </p>
               </div>
               {/* <div className='col-md-3 col-sm-12'>
                     <h4 className='text-warning'>Useful Links</h4>
@@ -308,19 +277,15 @@ export default function LandingPage() {
                     <p style={{ cursor: 'pointer' }}>Affililat Program</p>
                 </div> */}
               <div className="col-md-3 col-sm-12">
-                <h4 className="text-warning">Address</h4>
-                <FiMapPin className="me-2" />
-                Vishakha <br />
-                <FaPhoneAlt className="me-2" />
-                9950980633 <br />
-                <FaEnvelope className="me-2" />
-                vishakhav043@gmail.com <br />
-                <FaPrint className="me-2" />
-                +9560438596 <br />
+                <h4 className="text-warning ">Address</h4>
+                <div className="flex items-center gap-2 mt-2">
+                  <FiMapPin className=" me-2" />
+                  M.B.M University Jodhpur (Rajasthan)
+                </div>
               </div>
             </div>
             <p className="text-white pb-5">
-              @copyright Code With Yourself 2023
+              @copyright 2023. Made by StudyPods #SP0304
             </p>
           </div>
         </div>
