@@ -255,14 +255,14 @@ export async function getContest(req, res) {
     try {
         if (!contestId) return res.status(501).send({ error: "Invalid Contest-Id" });
 
-        ContestModel.findOne({ contestId }, function (err, user) {
+        ContestModel.findOne({ contestId }, function (err, contest) {
             if (err) return res.status(500).send({ err });
-            if (!user)
+            if (!contest)
                 return res.status(501).send({ error: "Couldn't Find the contest" });
 
             /** remove password from user */
             // mongoose return unnecessary data with object so convert it into json
-            const { ...rest } = Object.assign({}, user.toJSON());
+            const { ...rest } = Object.assign({}, contest.toJSON());
 
             return res.status(201).send(rest);
         });

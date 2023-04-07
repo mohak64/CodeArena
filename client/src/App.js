@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 
 /** import all components */
+import LandingPage from './components/LandingPage';
 import Username from './components/Username';
 import Password from './components/Password';
 import Register from './components/Register';
@@ -25,6 +26,10 @@ import { AuthorizeUser,AuthorizeAdmin, ProtectRoute } from './middleware/auth'
 const router = createBrowserRouter([
     {
         path : '/',
+        element : <LandingPage></LandingPage>
+    },
+    {
+        path : '/Username',
         element : <Username></Username>
     },
     {
