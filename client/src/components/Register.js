@@ -44,7 +44,7 @@ export default function Register() {
   }
 
   return (
-    <div style={{ backgroundColor: "#f8ddfc" }}>
+    <div style={{ backgroundColor: "#ede9ff" }}>
     <div className="container mx-auto">
 
       <Toaster position='top-center' reverseOrder={false}></Toaster>

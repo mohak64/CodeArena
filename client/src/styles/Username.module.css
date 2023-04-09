@@ -48,6 +48,12 @@
 .btn2{
     @apply border bg-indigo-500 w-2/4 h-2/4 py-4 rounded-lg text-gray-50 text-xl shadow-sm text-center;
 }
+.btn3{
+    @apply border bg-indigo-500 w-3/4 h-1/4 py-0 rounded-lg text-gray-50 text-xl shadow-sm text-center;
+}
+.btn4{
+    @apply border bg-indigo-500 w-3/4 h-1/4 py-2 rounded-lg text-gray-50 text-xl shadow-sm text-center;
+}
 
 
 .btn:hover{

@@ -10,7 +10,14 @@ export async function getUsername() {
   const token = localStorage.getItem("token");
   if (!token) return Promise.reject("Cannot find Token");
   let decode = jwt_decode(token);
+  
   return decode;
+}
+
+export async function getContestid() {
+  let id = {contestId:"090423"};
+  
+  return id;
 }
 
 /** authenticate function */
@@ -26,6 +33,16 @@ export async function authenticate(username) {
 export async function getUser({ username }) {
   try {
     const { data } = await axios.get(`/api/user/${username}`);
+    return { data };
+  } catch (error) {
+    return { error: "Password doesn't Match...!" };
+  }
+}
+
+/** get contest details */
+export async function getContest({ contestId }) {
+  try {
+    const { data } = await axios.get(`/api/user/${contestId}`);
     return { data };
   } catch (error) {
     return { error: "Password doesn't Match...!" };

@@ -67,7 +67,7 @@ export default function Profile() {
     <div className="container mx-auto">
       <Toaster position="top-center" reverseOrder={false}></Toaster>
 
-      <div className="flex justify-center items-center h-screen">
+      <div className="flex justify-center items-center h-auto py-4">
         <div
           className={`${styles.glass} ${extend.glass}`}
           style={{ width: "45%", paddingTop: "3em" }}
@@ -75,19 +75,7 @@ export default function Profile() {
          
         
           <div className="title flex flex-col items-center">
-          <button className={styles.btn} type="submit">
-          <div className="text-center py-4">
-                <span className='text-gray-500'><Link className='text-red-500' to="/contestPage">Go to Contest</Link></span>
-              </div>
-
-              
-
-              </button>
-
-              <div className="text-center py-4">
-                <span className='text-gray-500'><Link className='text-red-500' to="/">Dasboard</Link></span>
-              </div>
-
+          
               
             <h4 className="text-5xl my-2 font-bold">Profile</h4>
             <span className="py-4 text-xl w-2/3 text-center text-gray-500">
@@ -153,6 +141,19 @@ export default function Profile() {
               <button className={styles.btn} type="submit">
                 Update
               </button>
+              <button className={styles.btn3} type="submit">
+          <div className="text-center py-2">
+                <span className='text-white-500'><Link className='text-white-500' to="/contestPage">Go to Contest</Link></span>
+              </div>
+
+              
+
+              </button>
+
+              <div className={styles.btn4}>
+                <span className='text-white-500 '><Link className='text-white-500' to="/">Dasboard</Link></span>
+              </div>
+
             </div>
 
             <div className="text-center py-4">
@@ -161,8 +162,11 @@ export default function Profile() {
                 <button onClick={userLogout} className="text-red-500" to="/">
                   Logout
                 </button>
+                
               </span>
+              
             </div>
+            
           </form>
         </div>
       </div>

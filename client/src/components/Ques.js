@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 
-const Ques = (props) => {
+
+export default function Ques (props) {
     let {
         contestId,
         ques1d,
@@ -16,10 +17,10 @@ const Ques = (props) => {
         end,
     } = props;
     return(
-    <div>
-        <div style={{ backgroundColor: "#f8ddfc" }}>
-        <div className="container mx-auto">
-        <h2>Contest No. - {contestId}</h2>
+    
+        <div style={{ backgroundColor: "#f8ddfc", height:"100vh"}}>
+        <div className="container mx-auto pt-32 font-semibold">
+        <h5>Contest No. - {contestId}</h5>
         <div className="card my-3">
           <h5 className="card-header">Q1</h5>
           <div className="card-body">
@@ -62,8 +63,8 @@ const Ques = (props) => {
       </div>
 
     </div>
-    </div>
+    
     );
 };
 
-export default Ques;
+
