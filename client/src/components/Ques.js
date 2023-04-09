@@ -19,7 +19,7 @@ export default function Ques (props) {
     return(
     
         <div style={{ backgroundColor: "#f8ddfc", height:"100vh"}}>
-        <div className="container mx-auto pt-32 font-semibold">
+        <div className="container mx-auto pt-24 font-semibold">
         <h5>Contest No. - {contestId}</h5>
         <div className="card my-3">
           <h5 className="card-header">Q1</h5>
@@ -34,6 +34,10 @@ export default function Ques (props) {
             
           </div>
         </div>
+        
+      <button className="rounded-md bg-indigo-600 px-3.5 py-1.5 text-base font-semibold leading-7 text-white hover:bg-indigo-500 ">
+        Solve Q1
+      </button>
         <div className="card my-3">
           <h5 className="card-header">Q2</h5>
           <div className="card-body">
@@ -47,6 +51,9 @@ export default function Ques (props) {
             
           </div>
         </div>
+        <button className="rounded-md bg-indigo-600 px-3.5 py-1.5 text-base font-semibold leading-7 text-white hover:bg-indigo-500 ">
+        Solve Q2
+      </button>
         <div className="card my-3">
           <h5 className="card-header">Q3</h5>
           <div className="card-body">
@@ -60,6 +67,9 @@ export default function Ques (props) {
             
           </div>
         </div>
+        <button className="rounded-md bg-indigo-600 px-3.5 py-1.5 text-base font-semibold leading-7 text-white hover:bg-indigo-500 ">
+        Solve Q3
+      </button>
       </div>
 
     </div>
