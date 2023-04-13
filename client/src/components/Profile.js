@@ -63,7 +63,7 @@ export default function Profile() {
     return <h1 className="text-xl text-red-500">{serverError.message}</h1>;
 
   return (
-    <div style={{ backgroundColor: "#f8ddfc" }}>
+    <div style={{ backgroundColor: "#f8ddfc", height:"120vh" }}>
     <div className="container mx-auto">
       <Toaster position="top-center" reverseOrder={false}></Toaster>
 
@@ -150,9 +150,9 @@ export default function Profile() {
 
               </button>
 
-              <div className={styles.btn4}>
+              {/* <div className={styles.btn4}>
                 <span className='text-white-500 '><Link className='text-white-500' to="/">Dasboard</Link></span>
-              </div>
+              </div> */}
 
             </div>
 
