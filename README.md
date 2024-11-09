@@ -67,18 +67,6 @@ Start the server
   npm run start (both separately)
 ```
 
-
-## Mentor
-
-We extend our heartfelt gratitude to Mohit Boss, our mentor, for providing us with comprehensive project guidance, expert technological recommendations, and invaluable design and presentation insights that have been instrumental in the success of CodeArena.
-
- - [@cwmohit](https://github.com/cwmohit)
-## Our Team
-
-- [@Khushipurohit](https://github.com/Khushipurohit)
-- [@manisha-tak](https://github.com/manisha-tak)
-- [@Jaihanuman64](https://github.com/Jaihanuman64)
-- [@Vishakha633](https://github.com/Vishakha633)
 ## Future plans
 
 - Our team is currently building a custom code editor and validator, with plans to integrate a robust plagiarism detection tool in the near future.
